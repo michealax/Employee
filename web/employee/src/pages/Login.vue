@@ -18,6 +18,9 @@
                         tabindex="1"
                         autocomplete="on"
                 />
+                <span class="show-pwd">
+                    <el-icon class="el-icon el-icon-info" style="color: transparent"></el-icon>
+          </span>
             </el-form-item>
 
             <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
@@ -36,15 +39,19 @@
                             @blur="capsTooltip = false"
                             @keyup.enter.native="handleLogin"
                     />
-                    <span class="show-pwd" @click="showPwd">
 
+                    <span class="show-pwd" @click.prevent="showPwd">
+          <el-icon class="el-icon el-icon-view" ></el-icon>
           </span>
                 </el-form-item>
-            </el-tooltip>
 
-            <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;text-align: center"
-                       @click.native.prevent="handleLogin">Login
-            </el-button>
+            </el-tooltip>
+            <el-form-item>
+                <el-button :loading="loading" class="el-button--primary" style="width:100%;text-align: center"
+                           @click="handleLogin">Login
+                </el-button>
+            </el-form-item>
+
         </el-form>
     </div>
 
@@ -193,7 +200,7 @@
         .el-input {
             display: inline-block;
             height: 47px;
-            width: 80%;
+            width: 200px;
             min-width: 200px;
 
             input {
@@ -218,6 +225,8 @@
             background: rgba(0, 0, 0, 0.1);
             border-radius: 5px;
             color: #454545;
+            width: 320px;
+            margin: 11px auto;
 
             .el-icon {
                 color: white;
@@ -268,6 +277,7 @@
 
             position: relative;
 
+
             .title {
                 font-size: 26px;
                 color: $light_gray;
@@ -281,10 +291,6 @@
         }
 
         .show-pwd {
-
-            position: absolute;
-            right: 10px;
-            top: 7px;
             font-size: 16px;
             color: $dark_gray;
 
@@ -310,4 +316,5 @@
             }
         }
     }
+
 </style>

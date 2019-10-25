@@ -22,7 +22,7 @@
                 this.$router.push("/")
             },
             open() {
-                this.$message('This is a message.');
+                this.$message('Hello world !');
             }
         }
     }

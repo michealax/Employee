@@ -24,13 +24,14 @@
 
 <style lang="scss" scoped>
     .wscn-http404-container{
-
+        width: 100%;
+        overflow: hidden;
     }
     .wscn-http404 {
         position: relative;
         width: 100%;
-        padding:  50px;
-        overflow: hidden;
+       // padding:  50px;
+        //overflow: hidden;
 
         .bullshit {
             position: relative;
@@ -46,6 +47,7 @@
                 color: #1482f0;
                 opacity: 0;
                 margin-bottom: 20px;
+                margin: auto;
                 animation-name: slideUp;
                 animation-duration: 0.5s;
                 animation-fill-mode: forwards;
@@ -57,6 +59,7 @@
                 font-weight: bold;
                 opacity: 0;
                 margin-bottom: 10px;
+                margin: auto;
                 animation-name: slideUp;
                 animation-duration: 0.5s;
                 animation-delay: 0.1s;
@@ -68,6 +71,7 @@
                 color: grey;
                 opacity: 0;
                 margin-bottom: 30px;
+                margin: auto;
                 animation-name: slideUp;
                 animation-duration: 0.5s;
                 animation-delay: 0.2s;
