@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Login from '../pages/Login';
 import HelloWorld from '../components/HelloWorld';
 import NotFound from '../components/404'
+import Register from "../pages/Register";
+import Profile from "../pages/Profile";
 
 Vue.use(Router);
 
@@ -21,11 +23,24 @@ const index = new Router({
             component: Login
         },
         {
+          path:'/register',
+          name:'register',
+          component:Register
+        },
+        {
             path: '/helloWorld',
             name: 'helloWorld',
             component: HelloWorld,
             meta: {
                 auth: true
+            }
+        },
+        {
+          path:'/profile',
+          name:'profile',
+          component:Profile,
+            meta:{
+              auth: true
             }
         },
         {
