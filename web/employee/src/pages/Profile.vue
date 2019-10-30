@@ -47,7 +47,7 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
+   // import {mapGetters} from 'vuex'
     import UserCard from '../components/profile/UserCard'
     import Activity from '../components/profile/Activity'
     import Timeline from '../components/profile/Timeline'
@@ -63,20 +63,21 @@
             }
         },
         computed: {
-            ...mapGetters([
-                'name',
-                'avatar',
-                'roles'
-            ])
+            // ...mapGetters([
+            //     'name',
+            //     'avatar',
+            //     'roles'
+            // ])
         },
         created() {
             this.getUser()
         },
         methods: {
+
             getUser() {
                 this.user = {
                     name: this.name,
-                    role: this.roles.join(' | '),
+                    role: '',
                     email: 'admin@test.com',
                     avatar: this.avatar
                 }
