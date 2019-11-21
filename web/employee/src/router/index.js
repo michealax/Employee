@@ -23,9 +23,9 @@ const index = new Router({
             component: Login
         },
         {
-          path:'/register',
-          name:'register',
-          component:Register
+            path: '/register',
+            name: 'register',
+            component: Register
         },
         {
             path: '/helloWorld',
@@ -36,20 +36,21 @@ const index = new Router({
             }
         },
         {
-          path:'/profile',
-          name:'profile',
-          component:Profile,
-            meta:{
-              auth: true
+            path: '/profile',
+            name: 'profile',
+            component: Profile,
+            meta: {
+                auth: true,
+                roles: ['user']
             }
         },
         {
-            path:'/404',
-            name:"notFound",
-            component:NotFound
+            path: '/404',
+            name: "notFound",
+            component: NotFound
         },
         {
-            path:"*",
+            path: "*",
             redirect: "/404"
         }
     ],
@@ -59,7 +60,22 @@ const index = new Router({
 index.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.auth)) {  // 判断该路由是否需要登录权限
         if (sessionStorage.getItem('loginInfo')) {  // 判断当前用户的登录信息loginInfo是否存在
-            next();
+            if (to.meta.roles.length > 0){
+                for (let i = 0; i < to.meta.roles.length; i++) {
+                    if (role === to.meta.roles[i]) {
+                        next()
+                        break
+                    } else if (i === to.meta.roles.length - 1) {
+                        next({
+                            path: '/Error'
+                        })
+                    }
+                }
+            } else {
+                next()
+            }
+
+
         } else {
             next({
                 path: '/'
