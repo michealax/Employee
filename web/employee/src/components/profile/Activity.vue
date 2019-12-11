@@ -1,15 +1,17 @@
 <template>
     <div class="user-activity">
         <div class="post" v-for="(item, index) in resumes" :key="index">
-            <el-card :body-style="{ padding: '0px' }">
+            <el-card :body-style="{ padding: '20px' }">
                 <div style="padding: 14px;">
                     <span>{{item.name}}</span>
-                    <div class="bottom clearfix">
-                        <el-button type="text" class="button el-icon-zoom-in" style="color: aqua"
-                                   @click="editResume(item.id)">查看
-                        </el-button>
-                        <el-button type="text" class="button el-icon-delete" style="color: red" @click="deleteResume(item.id)">删除</el-button>
-                    </div>
+
+                </div>
+                <div class="bottom clearfix">
+                    <el-button type="info" class="button el-icon-zoom-in"
+                               @click="editResume(item.id)" circle>
+                    </el-button>
+                    <el-button type="danger" class="button el-icon-delete" circle
+                               @click="deleteResume(item.id)"></el-button>
                 </div>
             </el-card>
             <!--<ul class="list-inline">-->
@@ -31,7 +33,7 @@
             <el-card :body-style="{ padding: '0px' }">
                 <div style="padding: 14px;">
                     <div class="bottom clearfix">
-                        <el-button type="text" class="button el-icon-circle-plus-outline" style="color: aqua" @click="addResume">创建简历
+                        <el-button type="primary" class="button el-icon-circle-plus-outline" circle @click="addResume">
                         </el-button>
                     </div>
                 </div>
@@ -69,13 +71,19 @@
             }
         },
         methods: {
-            editResume(id){
+            editResume(id) {
+                console.log(id);
+                this.$router.push({
+                    path:'/resume',
+                    query:{
+                        id:id
+                    }
+                })
+            },
+            deleteResume(id) {
                 console.log(id)
             },
-            deleteResume(id){
-                console.log(id)
-            },
-            addResume(){
+            addResume() {
                 console.log(sessionStorage.getItem('loginInfo'))
             }
         }
