@@ -64,7 +64,7 @@
                 </el-button>
             </el-form-item>
             <el-link :loading="loading"  @click="$router.push('login')" style="color: blue">登录</el-link>
-            <el-link :loading="loading"  @click="see('http://localhost:6611/register')" style="color: blue">企业服务</el-link>
+            <el-link :loading="loading"  @click="see('http://localhost:6622/register')" style="color: blue">个人服务</el-link>
         </el-form>
     </div>
 
@@ -109,14 +109,15 @@
                 showDialog: false,
                 redirect: undefined,
                 otherQuery: {},
+
             }
         },
         watch: {
             $route: {
                 handler: function (route) {
-                    const query = route.query;
+                    const query = route.query
                     if (query) {
-                        this.redirect = query.redirect;
+                        this.redirect = query.redirect
                         this.otherQuery = this.getOtherQuery(query)
                     }
                 },
@@ -202,7 +203,7 @@
                 })
             },
             see(url){
-                window.location.href = url
+                window.location.href = url;
             }
         }
     }

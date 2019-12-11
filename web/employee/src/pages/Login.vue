@@ -7,20 +7,7 @@
                 <h3 class="title">登录</h3>
             </div>
 
-            <el-form-item>
-                <el-icon class="el-icon el-icon-s-promotion"></el-icon>
-                <el-select v-model="value" placeholder="账户类型">
-                    <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value">
-                    </el-option>
-                </el-select>
-                <span class="show-pwd">
-                    <el-icon class="el-icon el-icon-info" style="color: transparent"></el-icon>
-          </span>
-            </el-form-item>
+
 
             <el-form-item prop="username">
                 <el-icon class="el-icon el-icon-user"></el-icon>
@@ -69,7 +56,8 @@
             </el-form-item>
             <el-link :loading="loading"  @click="handleRegister" style="color: blue">注册
             </el-link>
-
+            <el-link :loading="loading"  @click="see('http://localhost:6611')" style="color: blue">企业服务
+            </el-link>
 
         </el-form>
     </div>
@@ -112,14 +100,6 @@
                 showDialog: false,
                 redirect: undefined,
                 otherQuery: {},
-                options: [{
-                    value: 0,
-                    label: '个人'
-                }, {
-                    value: 1,
-                    label: '企业'
-                }],
-                value: 0
             }
         },
         watch: {
@@ -173,7 +153,7 @@
             handleLogin() {
 
                 this.$refs.loginForm.validate(valid => {
-                    if (valid && this.checkType()) {
+                    if (valid) {
 
                         sessionStorage.setItem("loginInfo", '123');
                         this.$router.push("/profile")
@@ -214,6 +194,9 @@
             // },
             handleRegister(){
                 this.$router.push('register')
+            },
+            see(url){
+                window.location.href = url;
             }
         }
     }
