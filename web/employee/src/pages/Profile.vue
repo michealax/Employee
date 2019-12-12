@@ -1,32 +1,14 @@
 <template>
     <div class="app-container">
-        <el-menu default-active="1" class="el-menu-vertical-demo"  :collapse="true">
-            <el-submenu index="1">
-                <template slot="title">
-                    <i class="el-icon-setting" ></i>
-                    <span slot="title">设置</span>
-                </template>
-                    <el-menu-item index="1-1" @click="logout">
-                        <el-icon class="el-icon-switch-button"></el-icon>
-                        <span >退出</span>
-                    </el-menu-item>
-                    <el-menu-item index="1-2">
-                        <el-icon class="el-icon-info"></el-icon>
-                        <span>
-                            关于
-                        </span>
-                    </el-menu-item>
-            </el-submenu>
-        </el-menu>
+        <my-menu :active-index="'2-1'"></my-menu>
         <div v-if="user">
             <el-row :gutter="20">
-
                 <el-col :span="6" :xs="24">
                     <user-card :user="user"/>
                 </el-col>
 
                 <el-col :span="18" :xs="24">
-                    <el-card>
+                    <el-card style="width: 100%">
                         <el-tabs v-model="activeTab">
                             <el-tab-pane label="简历" name="activity">
                                 <activity/>
@@ -47,22 +29,24 @@
 </template>
 
 <script>
-   // import {mapGetters} from 'vuex'
+    // import {mapGetters} from 'vuex'
     import UserCard from '../components/profile/UserCard'
     import Activity from '../components/profile/Activity'
     import Timeline from '../components/profile/Timeline'
     import Account from '../components/profile/Account'
+    import MyMenu from "../components/Menu/MyMenu";
 
     export default {
         name: 'Profile',
-        components: {UserCard, Activity, Timeline, Account},
+        components: {MyMenu, UserCard, Activity, Timeline, Account},
         data() {
             return {
                 user: {
-                    id:1,
-                    username:'123@163.com'
+                    id: 1,
+                    username: '123@163.com'
                 },
-                activeTab: 'activity'
+                activeTab: 'activity',
+                activeIndex: '2-1',
             }
         },
         computed: {
@@ -79,14 +63,11 @@
 
             getUser() {
                 this.user = {
-                    id:1,
-                    username:'shane@163.com'
+                    id: 1,
+                    username: 'shane@163.com'
                 }
-            },
-            logout() {
-                sessionStorage.removeItem("loginInfo");
-                this.$router.push("/")
-            },
+            }
+
         }
     }
 </script>

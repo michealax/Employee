@@ -1,5 +1,5 @@
 <template>
-    <el-card style="margin-bottom:20px;">
+    <el-card style="margin-bottom:20px;width: 300px">
         <div slot="header" class="clearfix">
             <span>About me</span>
         </div>

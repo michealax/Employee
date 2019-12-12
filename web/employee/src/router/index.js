@@ -6,6 +6,7 @@ import NotFound from '../components/404'
 import Register from "../pages/Register";
 import Profile from "../pages/Profile";
 import Resume from "../pages/Resume";
+import Home from "../pages/Home";
 
 Vue.use(Router);
 
@@ -43,10 +44,18 @@ const index = new Router({
             meta: {
                 auth: true
             }
-        }, {
+        },
+        {
             path: '/resume',
-            name:'resume',
-            component:Resume,
+            name: 'resume',
+            component: Resume,
+            meta: {
+                auth: true
+            }
+        }, {
+            path: '/jobs',
+            name: 'jobs',
+            component: Home,
             meta:{
                 auth:true
             }
