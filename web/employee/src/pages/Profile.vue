@@ -13,11 +13,14 @@
                             <el-tab-pane label="简历" name="activity">
                                 <activity/>
                             </el-tab-pane>
-                            <el-tab-pane label="Timeline" name="timeline">
+                            <el-tab-pane label="已投递" name="timeline">
                                 <timeline/>
                             </el-tab-pane>
                             <el-tab-pane label="账号" name="account">
                                 <account :user="user"/>
+                            </el-tab-pane>
+                            <el-tab-pane label="数据分析" name="databoard">
+                                <data-board></data-board>
                             </el-tab-pane>
                         </el-tabs>
                     </el-card>
@@ -35,10 +38,11 @@
     import Timeline from '../components/profile/Timeline'
     import Account from '../components/profile/Account'
     import MyMenu from "../components/Menu/MyMenu";
+    import DataBoard from "../components/DataBoard";
 
     export default {
         name: 'Profile',
-        components: {MyMenu, UserCard, Activity, Timeline, Account},
+        components: {DataBoard, MyMenu, UserCard, Activity, Timeline, Account},
         data() {
             return {
                 user: {

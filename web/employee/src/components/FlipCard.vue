@@ -9,9 +9,9 @@
             </div>
             <div class="back">
                 <slot name="back"></slot>
-                <!--<i class="backFlipBtn el-icon-back"-->
-                   <!--v-on:click="changeState(false)">-->
-                <!--</i>-->
+                <i class="backFlipBtn el-icon-back"
+                   v-on:click="changeState(false)" :style="flipped?'color:black':'color: transparent'">
+                </i>
             </div>
         </div>
     </div>
@@ -49,6 +49,7 @@
         -o-transform: rotateY(-180deg);
         -ms-transform: rotateY(-180deg);
         transform: rotateY(-180deg);
+        color: transparent;
     }
 
     .flip-container {
@@ -115,7 +116,10 @@
         transform: rotateY(180deg);
     }
 
+    .back{
+        z-index: 1;
+    }
     .front {
-        z-index: 2;
+        z-index: 20;
     }
 </style>
