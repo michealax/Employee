@@ -45,6 +45,7 @@
                             <div><span>地点:</span>{{item.address}}</div>
                             <div><span>职责:</span>{{item.description}}</div>
                             <div><span>要求:</span>{{item.required}}</div>
+                            <el-button @click="applyJob(item.id)">申请</el-button>
                         </el-card>
                         <el-card shadow="hover" slot="reference">
                             <div class="el-header">{{item.position}}</div>
@@ -223,6 +224,22 @@
 
                 this.tempJobs = JSON.parse(JSON.stringify(this.jobs))
 
+            },
+            applyJob(id){
+                if (id>0){
+                    console.log(id);
+                    this.$notify({
+                        title:'成功',
+                        message:'成功申请该职位',
+                        type:"success"
+                    })
+                } else {
+                    this.$notify({
+                        title:'失败',
+                        message:'已申请该职位',
+                        type:"warning"
+                    })
+                }
             }
         },
         created() {
