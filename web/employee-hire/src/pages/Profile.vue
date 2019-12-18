@@ -51,9 +51,6 @@
                             <el-tab-pane label="招聘信息" name="activity">
                                 <activity/>
                             </el-tab-pane>
-                            <el-tab-pane label="Timeline" name="timeline">
-                                <timeline/>
-                            </el-tab-pane>
                             <el-tab-pane label="账户" name="account">
                                 <account :user="user"/>
                             </el-tab-pane>
@@ -70,13 +67,12 @@
     // import {mapGetters} from 'vuex'
     import UserCard from '../components/profile/UserCard'
     import Activity from '../components/profile/Activity'
-    import Timeline from '../components/profile/Timeline'
     import Account from '../components/profile/Account'
     import MyMenu from "../components/Menu/MyMenu";
 
     export default {
         name: 'Profile',
-        components: {MyMenu, UserCard, Activity, Timeline, Account},
+        components: {MyMenu, UserCard, Activity,  Account},
         data() {
             return {
                 user: {},

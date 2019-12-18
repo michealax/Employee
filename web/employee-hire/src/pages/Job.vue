@@ -5,7 +5,7 @@
             <el-tabs>
                 <el-tab-pane label="招聘信息">
                     <el-card style="width: auto">
-                        <div >
+                        <div>
                             <span>{{job.position}}</span>
                             <el-divider class="el-divider--vertical"></el-divider>
                             <span>{{job.department}}</span>
@@ -118,8 +118,24 @@
                         </el-timeline-item>
                     </el-timeline>
                 </el-tab-pane>
-                <el-tab-pane label="数据分析" :disabled="id === 0">
+                <el-tab-pane label="为我推荐" :disabled="id === 0">
+                    <el-timeline>
+                        <el-card style="margin: 10px 20px">
+                            <el-icon class="el-button el-icon-refresh"></el-icon>
+                        </el-card>
+                        <el-timeline-item v-for="(item,index) of reResumes" :key="index" :timestamp="item.date"
+                                          placement="top">
+                            <el-card shadow="hover">
+                                <div style="padding: 14px;">
+                                    <span>{{item.name}}</span>
+                                    <div>{{item.email}}</div>
+                                    <div>{{item.school}}</div>
+                                </div>
 
+                                <button class="el-button el-icon-search" @click="getDetails(index)"></button>
+                            </el-card>
+                        </el-timeline-item>
+                    </el-timeline>
                 </el-tab-pane>
             </el-tabs>
         </el-card>
@@ -129,6 +145,7 @@
 <script>
 
     import MyMenu from "../components/Menu/MyMenu";
+
     export default {
         name: "Job",
         components: {MyMenu},
@@ -220,7 +237,8 @@
                         percentage: 25,
                         resumeId: 2
                     }]
-                }
+                },
+                reResumes: []
             }
         },
         methods: {
@@ -294,12 +312,31 @@
                     email: '152@gmail.com',
                     school: '华东理工大学',
                     viewed: false
+                }];
+                this.reResumes = [{
+                    id: 3,
+                    name: 'shane',
+                    date: '2019-12-4',
+                    email: 'shaneann@163.com',
+                    school: '复旦大学',
+                }, {
+                    id: 4,
+                    name: 'xin',
+                    date: '2019-12-6',
+                    email: '123@163.com',
+                    school: '西南某高校',
+                }, {
+                    id: 5,
+                    name: 'hun',
+                    date: '2019-12-6',
+                    email: '152@gmail.com',
+                    school: '华东理工大学',
                 }]
 
             },
             update() {
                 this.visible = false;
-                if (this.id === 0){
+                if (this.id === 0) {
                     this.tempJob.id = 10
                 }
                 this.job = JSON.parse(JSON.stringify(this.tempJob));
@@ -314,9 +351,9 @@
                 }
                 console.log(this.resumes[index].id);
                 this.$router.push({
-                    path:'/resume',
-                    query:{
-                        id:this.resumes[index].id
+                    path: '/resume',
+                    query: {
+                        id: this.resumes[index].id
                     }
                 })
             },
