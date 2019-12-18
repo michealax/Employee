@@ -5,6 +5,7 @@ import HelloWorld from '../components/HelloWorld';
 import NotFound from '../components/404'
 import Register from "../pages/Register";
 import Profile from "../pages/Profile";
+import Resume from "../pages/Resume";
 
 Vue.use(Router);
 
@@ -42,6 +43,14 @@ const index = new Router({
             meta: {
                 auth: true
             }
+        },
+        {
+          path:'/job',
+          name:'job',
+          component:Resume,
+          meta:{
+              auth:true
+          }
         },
         {
             path: '/404',

@@ -11,23 +11,9 @@
                                @click="editResume(item.id)" circle>
                     </el-button>
                     <el-button type="danger" class="button el-icon-delete" circle
-                               @click="deleteResume(item.id)"></el-button>
+                               @click="deleteResume(item.id,index)"></el-button>
                 </div>
             </el-card>
-            <!--<ul class="list-inline">-->
-            <!--<li>-->
-            <!--<span class="link-black text-sm">-->
-            <!--<el-icon class="el-icon-edit" style="color: aqua"/>-->
-            <!--查看-->
-            <!--</span>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<span class="link-black text-sm">-->
-            <!--<el-icon class="el-icon-delete" style="color: red"/>-->
-            <!--删除-->
-            <!--</span>-->
-            <!--</li>-->
-            <!--</ul>-->
         </div>
         <div class="post">
             <el-card :body-style="{ padding: '0px' }">
@@ -80,8 +66,9 @@
                     }
                 })
             },
-            deleteResume(id) {
-                console.log(id)
+            deleteResume(id,index) {
+                console.log(id);
+                this.resumes.splice(index,1)
             },
             addResume() {
                 console.log(sessionStorage.getItem('loginInfo'))

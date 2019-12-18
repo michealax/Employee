@@ -674,7 +674,7 @@
         methods: {
             getResumeId() {
                 this.id = parseInt(this.$route.query.id);
-                if (typeof (this.id) == "undefined" || this.id < 0) {
+                if (typeof (this.id) == "undefined" || isNaN(this.id)|| this.id < 0) {
                     this.$router.push('/')
                 } else {
                     this.isNew = this.id === 0;
