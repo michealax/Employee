@@ -23,3 +23,6 @@ company/公司	<br>
   
 recruitment/招聘职位	<br>
 	id companyID name salary education/学历 number/招聘人数 release/发布时间	<br>
+
+deliver/已投递<br>
+	id	personalID	recruitmentID/投递职位
