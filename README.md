@@ -1,6 +1,6 @@
 # Employee
 
-Personal/个人信息 <br>
+==Personal/个人信息 <br>
 	id 	name	 gender	 phone	 email 	live	<br>
   
 birthday/生日	<br>
