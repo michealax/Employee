@@ -19,7 +19,7 @@ user/用户	<br>
 	id name password isCompany informationId/是个人就是personalID企业就是companyID	<br>
   
 company/公司	<br>
-	id		name		address 	<br>
+	id		name		address 	description<br>
   
 recruitment/招聘职位	<br>
 	id companyID name salary education/学历 number/招聘人数 release/发布时间	<br>
