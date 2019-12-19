@@ -26,3 +26,10 @@ recruitment/招聘职位	<br>
 
 deliver/已投递<br>
 	id	personalID	recruitmentID/投递职位
+	
+city/中国城市<br>
+	id  cityname	
+	<br>
+	pid/代表属于哪个id的下面，如广西的 id = 7，那么南宁的 pid = 7,桂林的 pid = 7...	
+	<br>
+	type/0代表中国，1代表省份，2代表市级，3代表县级<br>
