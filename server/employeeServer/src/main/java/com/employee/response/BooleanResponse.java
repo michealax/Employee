@@ -1,12 +1,14 @@
 package com.employee.response;
 
+//返回成功失败信息
 public class BooleanResponse {
-    private boolean success;
+  private boolean success;
 
-    public BooleanResponse(boolean success){
-        this.success=success;
-    }
-    public boolean isSuccess() {
-        return success;
-    }
+  public BooleanResponse(boolean success){
+    this.success=success;
+  }
+  public boolean isSuccess() {
+    return success;
+  }
+
 }

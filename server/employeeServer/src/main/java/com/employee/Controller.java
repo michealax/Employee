@@ -1,4 +1,4 @@
-package com.employee.controller;
+package com.employee;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
